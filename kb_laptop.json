@@ -1,0 +1,71 @@
+{
+  "judul": "Sistem Pakar Troubleshooting Kerusakan Perangkat Keras Komputer Laptop Berdasarkan Indikator POST dan Gejala Fisik Menggunakan Metode Forward Chaining",
+  "batas": "Aturan disusun berdasarkan buku pedoman resmi pemeliharaan perangkat keras laptop (HP Maintenance Guide), publikasi ilmiah Journal of Informatics and Business (JIBS), serta buku ajar troubleshooting komputer Universitas Nusa Mandiri. Sistem ini memberikan diagnosis awal dan rekomendasi teknis perbaikan perangkat keras laptop; hasil sistem berupa saran pendukung keputusan teknis, bukan pengganti pemeriksaan laboratorium teknisi resmi.",
+  "sumber": {
+    "S1": "HP Maintenance and Service Guide: Troubleshooting and Maintenance, HP Inc. Official Documentation, https://kaas.hpcloud.hp.com/",
+    "S2": "Sistem Pakar Deteksi Kerusakan Laptop Dengan Metode Forward Chaining, Journal of Informatics and Business (JIBS), https://jurnal.ittc.web.id/index.php/jibs/article/view/222",
+    "S3": "Buku Ajar Troubleshooting Komputer, Program Studi Teknologi Komputer, Universitas Nusa Mandiri, https://repository.nusamandiri.ac.id/"
+  },
+  "aturan": [
+    {
+      "id": "R1",
+      "jika": [
+        "laptop menyala tetapi layar blank hitam tanpa tampilan logo BIOS",
+        "terdengar bunyi beep berulang atau lampu LED CapsLock berkedip"
+      ],
+      "mode": "dan",
+      "maka": "indikasi kegagalan inisialisasi modul RAM",
+      "sumber": "S1, S3"
+    },
+    {
+      "id": "R2",
+      "jika": [
+        "bodi bawah laptop terasa sangat panas menyengat",
+        "suara kipas pendingin berputar kencang tanpa henti atau terdengar mendengung kasar"
+      ],
+      "mode": "dan",
+      "maka": "indikasi gangguan sistem termal laptop",
+      "sumber": "S1, S3"
+    },
+    {
+      "id": "R3",
+      "jika": [
+        "indikasi kegagalan inisialisasi modul RAM",
+        "laptop gagal masuk ke sistem operasi dan restart berulang kali"
+      ],
+      "mode": "dan",
+      "maka": "Kerusakan Modul RAM atau Slot SODIMM Kotor: Rekomendasi lepaskan modul RAM, bersihkan pin konektor emas dengan penghapus karet, dan pasang pada slot memori alternatif",
+      "sumber": "S1, S2"
+    },
+    {
+      "id": "R4",
+      "jika": [
+        "indikasi gangguan sistem termal laptop",
+        "laptop mati mendadak setelah digunakan beberapa menit saat menjalankan aplikasi berat"
+      ],
+      "mode": "dan",
+      "maka": "Thermal Overheating Akibat Pasta Termal Kering atau Sirkulasi Heatsink Tersumbat: Rekomendasi bersihkan ventilasi sirip heatsink dari debu dan aplikasikan ulang pasta termal (thermal paste) baru pada CPU/GPU",
+      "sumber": "S1, S2"
+    },
+    {
+      "id": "R5",
+      "jika": [
+        "layar menampilkan pesan error No Bootable Device Found atau Operating System Not Found",
+        "terdengar bunyi ketukan klik berulang pada area storage atau drive tidak terbaca di BIOS"
+      ],
+      "mode": "atau",
+      "maka": "Kerusakan Media Penyimpanan (Storage Drive Bad Sector / Rusak): Rekomendasi periksa pemasangan konektor SATA-NVMe, uji diagnostik SMART drive, dan siapkan penggantian drive SSD/HDD",
+      "sumber": "S1, S3"
+    },
+    {
+      "id": "R6",
+      "jika": [
+        "laptop langsung mati seketika saat charger adaptor dilepas",
+        "indikator baterai pada sistem operasi bertuliskan Plugged In Not Charging"
+      ],
+      "mode": "atau",
+      "maka": "Degradasi Sel Baterai atau Gangguan Sirkuit Pengisian Daya: Rekomendasi lakukan kalibrasi baterai atau rencanakan penggantian unit baterai laptop",
+      "sumber": "S1, S2"
+    }
+  ]
+}
